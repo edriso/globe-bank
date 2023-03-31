@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="<?php echo WWW_ROOT . '/staff/index.php'; ?>">
                     <h3 class="mb-0">GBI Staff Area</h3>
                 </a>
 
@@ -33,7 +33,11 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Menu</a>
+                            <a class="nav-link" href="<?php echo WWW_ROOT . '/staff/index.php'; ?>">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="<?php echo WWW_ROOT . '/staff/subjects/index.php'; ?>">Subjects</a>
                         </li>
                     </ul>
                 </div>
