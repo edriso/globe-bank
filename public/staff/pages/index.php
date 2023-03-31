@@ -41,7 +41,7 @@ $pages = [
                     <td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?></td>
                     <td><?php echo h($page['menu_name']); ?></td>
                     <td><a class="action"
-                            href="<?php echo url_for('/staff/pages/show.php?id=' . $page['id']); ?>">View</a>
+                            href="<?php echo url_for('/staff/pages/show.php?id=' . h(u($page['id']))); ?>">View</a>
                     </td>
                     <td><a class="action" href="#">Edit</a></td>
                     <td><a class="action" href="#">Delete</a></td>
