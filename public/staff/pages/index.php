@@ -36,10 +36,10 @@ $pages = [
             <tbody>
                 <?php foreach($pages as $page) { ?>
                 <tr>
-                    <th scope="row"><?php echo $page['id']; ?></th>
-                    <td><?php echo $page['position']; ?></td>
+                    <th scope="row"><?php echo h($page['id']); ?></th>
+                    <td><?php echo h($page['position']); ?></td>
                     <td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?></td>
-                    <td><?php echo $page['menu_name']; ?></td>
+                    <td><?php echo h($page['menu_name']); ?></td>
                     <td><a class="action"
                             href="<?php echo url_for('/staff/pages/show.php?id=' . $page['id']); ?>">View</a>
                     </td>
