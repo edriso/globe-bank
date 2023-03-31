@@ -3,6 +3,8 @@
 <?php $page_title = "Pages"; ?>
 <?php include_once(SHARED_PATH . '/staff_header.php'); ?>
 
-<div>content</div>
+<!-- Content -->
+<div>pages</div>
+<!-- Content Ends -->
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>
