@@ -9,7 +9,7 @@
 
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="<?php echo WWW_ROOT . '/staff/subjects/index.php'; ?>">Subjects</a>
+            <a class="nav-link" href="<?php echo STAFF_ROOT . '/subjects/index.php'; ?>">Subjects</a>
         </li>
     </ul>
 </div>
