@@ -11,6 +11,9 @@
         <li class="nav-item">
             <a class="nav-link" href="<?php echo url_for('staff/subjects/index.php'); ?>">Subjects</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo url_for('staff/pages/index.php'); ?>">Pages</a>
+        </li>
     </ul>
 </div>
 <!-- Content Ends -->
