@@ -15,7 +15,7 @@ $pages = [
 
 <div id="content">
     <div class="subjects listing">
-        <h1>Subjects</h1>
+        <h1>Pages</h1>
 
         <div class="actions">
             <a href="#">Create New Subject</a>
