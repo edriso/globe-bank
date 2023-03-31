@@ -1,3 +1,5 @@
+</main>
+
 <footer class="bg-light p-3 text-center">
     &copy; <?php echo date('Y'); ?> Globe Bank
 </footer>
