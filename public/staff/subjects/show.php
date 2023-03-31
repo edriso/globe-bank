@@ -1,6 +1,8 @@
+<?php require_once('../../../private/initialize.php'); ?>
+
 <?php
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? '1';
 
 echo $id;
 
