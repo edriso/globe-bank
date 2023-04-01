@@ -46,12 +46,13 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1">1</option>
+                    <option value="1" <?php if($position === '1'){ echo 'selected'; } ?>>1</option>
                 </select>
             </div>
             <div class="mb-3 form-check">
-                <input type="hidden" name="visible" value="0" class="form-check-input">
-                <input type="checkbox" name="visible" value="1" class="form-check-input" id="visible">
+                <input type="hidden" name="visible" value="0" class="form-check-input" />
+                <input type="checkbox" name="visible" value="1" class="form-check-input" id="visible"
+                    <?php echo $visible === '1' ? 'checked' : ''; ?> />
                 <label class="form-check-label" for="visible">Visible</label>
             </div>
             <button type="submit" class="btn btn-primary">Create Subject</button>
