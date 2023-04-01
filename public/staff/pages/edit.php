@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1" <?php echo $position === '1' ? 'selected="selected"' : ''; ?>>1</option>
+                    <option value="1" <?php if($position === '1'){ echo 'selected'; } ?>>1</option>
                 </select>
             </div>
             <div class="mb-3 form-check">
