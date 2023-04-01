@@ -2,6 +2,8 @@
 
 require_once('../../../private/initialize.php');
 
+$id = $_GET['id'] ?? '';
+
 $test = $_GET['test'] ?? '';
 if ($test == '404') {
     error_404();
@@ -23,7 +25,7 @@ if ($test == '404') {
     <div class="subject new">
         <h1>Edit Subject</h1>
 
-        <form action="" method="post">
+        <form action="<?php echo url_for("/staff/subjects/create.php?id=$id"); ?>" method="post">
             <div class="mb-3">
                 <label for="menu-name" class="form-label">Menu Name</label>
                 <input type="text" name="name" class="form-control" id="menu-name" aria-describedby="emailHelp">
