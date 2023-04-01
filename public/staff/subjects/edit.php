@@ -11,9 +11,9 @@ $id = $_GET['id'];
 if(is_post_request()) {
     // Handle form values sent by new.php
 
-    $menu_name = $_POST['menu_name'] ?? '';
-    $position = $_POST['position'] ?? '';
-    $visible = $_POST['visible'] ?? '';
+    $menu_name = h($_POST['menu_name']) ?? '';
+    $position = h($_POST['position']) ?? '';
+    $visible = h($_POST['visible']) ?? '';
 
     echo "Form parameters<br/>";
     echo "Menu name: $menu_name<br/>";
@@ -46,7 +46,6 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="2">2</option>
                     <option value="1">1</option>
                 </select>
             </div>

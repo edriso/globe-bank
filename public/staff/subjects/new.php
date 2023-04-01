@@ -17,16 +17,14 @@ if ($test == '404') {
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
-
     <a class="back-link" href="<?php echo url_for('/staff/subjects/index.php'); ?>">&laquo; Back to List</a>
-
     <div class="subject new">
         <h1>Create Subject</h1>
 
         <form action="<?php echo url_for('/staff/subjects/create.php'); ?>" method="post">
             <div class="mb-3">
                 <label for="menu-name" class="form-label">Menu Name</label>
-                <input type="text" name="menu_name" class="form-control" id="menu-name" aria-describedby="emailHelp">
+                <input type="text" name="menu_name" class="form-control" id="menu-name">
             </div>
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
@@ -41,7 +39,6 @@ if ($test == '404') {
             </div>
             <button type="submit" class="btn btn-primary">Create Subject</button>
         </form>
-
     </div>
 </div>
 
