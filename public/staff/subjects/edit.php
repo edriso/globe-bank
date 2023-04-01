@@ -2,15 +2,25 @@
 
 require_once('../../../private/initialize.php');
 
-$id = $_GET['id'] ?? '';
-
-$test = $_GET['test'] ?? '';
-if ($test == '404') {
-    error_404();
-} elseif ($test == '500') {
-    error_500();
-} elseif($test == 'redirect') {
+if(!isset($_GET['id'])) {
     redirect_to(url_for('/staff/subjects/index.php'));
+}
+
+$id = $_GET['id'];
+
+if(is_post_request()) {
+    // Handle form values sent by new.php
+
+    $menu_name = $_POST['menu_name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $visible = $_POST['visible'] ?? '';
+
+    echo "Form parameters<br/>";
+    echo "Menu name: $menu_name<br/>";
+    echo "Position: $position<br/>";
+    echo "Visible: $visible<br/>";
+} else {
+    // redirect_to(url_for('/staff/subjects/new.php'));
 }
 
 ?>
@@ -25,7 +35,7 @@ if ($test == '404') {
     <div class="subject new">
         <h1>Edit Subject</h1>
 
-        <form action="<?php echo url_for("/staff/subjects/create.php?id=$id"); ?>" method="post">
+        <form action="<?php echo url_for("/staff/subjects/edit.php?id=" . h(u($id))); ?>" method="post">
             <div class="mb-3">
                 <label for="menu-name" class="form-label">Menu Name</label>
                 <input type="text" name="menu_name" class="form-control" id="menu-name" aria-describedby="emailHelp">
