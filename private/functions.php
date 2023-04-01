@@ -36,11 +36,11 @@ function redirect_to($location) {
   exit;
 }
 
-function request_is_post() {
+function is_post_request() {
   return $_SERVER['REQUEST_METHOD'] === 'POST';
 }
 
-function request_is_get() {
+function is_get_request() {
   return $_SERVER['REQUEST_METHOD'] === 'GET';
 }
 
