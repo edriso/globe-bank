@@ -20,7 +20,9 @@ if(is_post_request()) {
     echo "Position: $position<br/>";
     echo "Visible: $visible<br/>";
 } else {
-    // redirect_to(url_for('/staff/subjects/new.php'));
+    $menu_name = '';
+    $position = '';
+    $visible = '';
 }
 
 ?>
@@ -38,11 +40,13 @@ if(is_post_request()) {
         <form action="<?php echo url_for("/staff/subjects/edit.php?id=" . h(u($id))); ?>" method="post">
             <div class="mb-3">
                 <label for="menu-name" class="form-label">Menu Name</label>
-                <input type="text" name="menu_name" class="form-control" id="menu-name" aria-describedby="emailHelp">
+                <input type="text" name="menu_name" class="form-control" id="menu-name"
+                    value="<?php echo $menu_name; ?>">
             </div>
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
+                    <option value="2">2</option>
                     <option value="1">1</option>
                 </select>
             </div>
