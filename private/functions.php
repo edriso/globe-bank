@@ -31,4 +31,9 @@ function error_500() {
   exit();
 }
 
+function redirect_to($location) {
+  header("Location: " . $location);
+  exit;
+}
+
 ?>
