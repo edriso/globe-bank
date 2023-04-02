@@ -6,7 +6,7 @@
 <!-- Content -->
 <?php
 
-$pages_set = find_all_pages();
+$page_set = find_all_pages();
 
 ?>
 
@@ -19,6 +19,7 @@ $pages_set = find_all_pages();
         </div>
 
         <table class="table">
+            <caption><?php echo mysqli_num_rows($page_set); ?> Pages</caption>
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -31,7 +32,7 @@ $pages_set = find_all_pages();
                 </tr>
             </thead>
             <tbody>
-                <?php while($page = mysqli_fetch_assoc($pages_set)) { ?>
+                <?php while($page = mysqli_fetch_assoc($page_set)) { ?>
                 <tr>
                     <th scope="row"><?php echo h($page['id']); ?></th>
                     <td><?php echo h($page['position']); ?></td>
@@ -51,6 +52,6 @@ $pages_set = find_all_pages();
 </div>
 <!-- Content Ends -->
 
-<?php mysqli_free_result($pages_set); ?>
+<?php mysqli_free_result($page_set); ?>
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>
