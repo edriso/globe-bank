@@ -31,4 +31,19 @@ function find_all_pages() {
     return $result;
 }
 
+function find_page($id) {
+    global $db;
+    $query = "SELECT * FROM pages ";
+    $query .= "WHERE id = $id";
+    $result = mysqli_query($db, $query);
+    $page = mysqli_fetch_assoc($result);
+    mysqli_free_result($result); // free from memory
+
+    if(!$page) {
+        redirect_to(url_for('/staff/pages/index.php'));
+    }
+
+    return $page;
+}
+
 ?>

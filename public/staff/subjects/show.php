@@ -35,7 +35,7 @@ $subject = find_subject($id);
             </tr>
             <tr>
                 <th scope="row">Visible</th>
-                <td><?php echo h($subject['visible']); ?></td>
+                <td><?php echo h($subject['visible']) ? 'true' : 'false'; ?></td>
             </tr>
         </tbody>
     </table>
