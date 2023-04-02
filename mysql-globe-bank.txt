@@ -1,0 +1,70 @@
+CREATE DATABASE globe_bank;
+
+USE globebank;
+
+GRANT ALL PRIVILEGES ON globe_bank.*
+TO 'username'@'localhost'
+IDENTIFIED BY 'password';
+
+SHOW GRANTS FOR 'username'@'localhost';
+
+CREATE TABLE subjects (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	menu_name VARCHAR(255),
+	position INT(3),
+	visible TINYINT(1),
+	PRIMARY KEY (id)
+);
+
+SHOW TABLES;
+
+SHOW COLUMNS FROM tabel_name;
+
+DROP TABLE table_name;
+
+--------------------------
+CRUD:
+SELECT *
+FROM table
+WHERE column1 = 'text'
+ORDER BY column1 ASC
+LIMIT 10;
+
+INSERT INTO table (col1, col2)
+VALUES (val1, val2);
+
+UPDATE table
+SET col1 = 'this', col2 = 'that'
+WHERE id = 1;
+
+DELETE FROM table
+WHERE id = 1;
+--------------------------
+ALTER TABLE table_name
+ADD INDEX index_name (column);
+# index_name: FK_subject_id, index_subject_id, subject_id
+--------------------------
+
+INSERT INTO subjects (menu_name, position, visible) VALUES ('About Globe Bank', 1, 1);
+
+CREATE TABLE pages (
+id int(11) NOT NULL AUTO_INCREMENT,
+subject_id int,
+menu_name varchar(255),
+position int(3),
+visible tinyint(1),
+content text,
+PRIMARY KEY (ID),
+FOREIGN KEY (subject_id) REFERENCES subjects(id)
+);
+
+ALTER TABLE table_name
+ADD INDEX index_name (column);
+
+INSERT INTO pages (subject_id, menu_name, position, visible) VALUES ('1', 'Globe Bank', 1, 1);
+
+select s.menu_name as subject_name, p.menu_name, p.position, p.visible, p.content
+from subjects s, pages p
+where p.subject_id = s.id;
+
+
