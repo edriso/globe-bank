@@ -4,13 +4,10 @@
 <?php include_once(SHARED_PATH . '/staff_header.php'); ?>
 
 <!-- Content -->
-<?php 
-$pages = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Global Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'Consumer'],
-    ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Small Business'],
-    ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Commercial']
-];
+<?php
+
+$pages_set = find_all_pages();
+
 ?>
 
 <div id="content">
@@ -34,7 +31,7 @@ $pages = [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($pages as $page) { ?>
+                <?php while($page = mysqli_fetch_assoc($pages_set)) { ?>
                 <tr>
                     <th scope="row"><?php echo h($page['id']); ?></th>
                     <td><?php echo h($page['position']); ?></td>
@@ -53,5 +50,7 @@ $pages = [
     </div>
 </div>
 <!-- Content Ends -->
+
+<?php mysqli_free_result($pages_set);?>
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>

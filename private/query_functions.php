@@ -8,4 +8,12 @@ function find_all_subjects() {
     return $result;
 }
 
+function find_all_pages() {
+    global $db;
+    $query = 'SELECT * FROM pages';
+    $query .= ' ORDER BY position ASC';
+    $result = mysqli_query($db, $query);
+    return $result;
+}
+
 ?>
