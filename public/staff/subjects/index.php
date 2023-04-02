@@ -19,6 +19,7 @@ $subject_set = find_all_subjects();
         </div>
 
         <table class="table">
+            <caption><?php echo mysqli_num_rows($subject_set); ?> Subjects</caption>
             <thead>
                 <tr>
                     <th scope="col">ID</th>

@@ -7,7 +7,12 @@ include_once(SHARED_PATH . '/staff_header.php');
 
 <?php
 
-$id = $_GET['id'] ?? '1';
+if(!isset($_GET['id'])) {
+    redirect_to(url_for('/staff/subjects/index.php'));
+}
+
+$id = $_GET['id'];
+$subject = find_subject($id);
 
 ?>
 
@@ -15,8 +20,25 @@ $id = $_GET['id'] ?? '1';
     <a href="<?php echo url_for('/staff/subjects/index.php'); ?>">&laquo; Back to List</a>
 
     <div class="subject show mt-2">
-        <h3>Subject ID: <?php echo h($id); ?></h3>
+        <h3>Subject: <?php echo h($subject['menu_name']); ?></h3>
     </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">Menu Name</th>
+                <td><?php echo $subject['menu_name']; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Position</th>
+                <td><?php echo $subject['position']; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Visible</th>
+                <td><?php echo $subject['visible']; ?></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>
