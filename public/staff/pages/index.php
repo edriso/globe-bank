@@ -51,6 +51,6 @@ $pages_set = find_all_pages();
 </div>
 <!-- Content Ends -->
 
-<?php mysqli_free_result($pages_set);?>
+<?php mysqli_free_result($pages_set); ?>
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>
