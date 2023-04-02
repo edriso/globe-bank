@@ -1,6 +1,6 @@
 <?php
 
-function find_all_data($table) {
+function find_all_records($table) {
     global $db;
     $query = "SELECT * FROM $table";
     $query .= " ORDER BY position ASC";
@@ -8,7 +8,7 @@ function find_all_data($table) {
     return $result;
 }
 
-function find_single_item($table, $id) {
+function find_single_record($table, $id) {
     global $db;
     $query = "SELECT * FROM $table ";
     $query .= "WHERE id = $id";

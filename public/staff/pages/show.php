@@ -12,7 +12,7 @@ if(!isset($_GET['id'])) {
 }
 
 $id = $_GET['id'];
-$page = find_single_item('pages', $id);
+$page = find_single_record('pages', $id);
 
 ?>
 

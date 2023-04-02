@@ -6,7 +6,7 @@
 <!-- Content -->
 <?php 
 
-$subject_set = find_all_data('subjects');
+$subject_set = find_all_records('subjects');
 
 ?>
 
