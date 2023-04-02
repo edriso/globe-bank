@@ -5,12 +5,9 @@
 
 <!-- Content -->
 <?php 
-$subjects = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Global Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'Consumer'],
-    ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Small Business'],
-    ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Commercial']
-];
+
+$subject_set = find_all_subjects();
+
 ?>
 
 <div id="content">
@@ -34,7 +31,7 @@ $subjects = [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($subjects as $subject) { ?>
+                <?php foreach($subject_set as $subject) { ?>
                 <tr>
                     <th scope="row"><?php echo h($subject['id']); ?></th>
                     <td><?php echo h($subject['position']); ?></td>
@@ -54,5 +51,7 @@ $subjects = [
     </div>
 </div>
 <!-- Content Ends -->
+
+<?php mysqli_free_result($subject_set); ?>
 
 <?php include_once(SHARED_PATH . '/staff_footer.php'); ?>
