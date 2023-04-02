@@ -2,13 +2,11 @@
 
 require_once('../../../private/initialize.php');
 
-$test = $_GET['test'] ?? '';
-if ($test == '404') {
-    error_404();
-} elseif ($test == '500') {
-    error_500();
-} elseif($test == 'redirect') {
-    redirect_to(url_for('/staff/subjects/index.php'));
+if(is_post_request()) {
+    $menu_name = $_POST['menu_name'];
+    $position = $_POST['position'];
+    $visible = $_POST['visible'];
+    create_record('subjects',  $menu_name, $position, $visible);
 }
 
 ?>
@@ -21,7 +19,7 @@ if ($test == '404') {
     <div class="subject new">
         <h1>Create Subject</h1>
 
-        <form action="<?php echo url_for('/staff/subjects/create.php'); ?>" method="post">
+        <form action="<?php echo url_for('/staff/subjects/new.php'); ?>" method="post">
             <div class="mb-3">
                 <label for="menu-name" class="form-label">Menu Name</label>
                 <input type="text" name="menu_name" class="form-control" id="menu-name">
