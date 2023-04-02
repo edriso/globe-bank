@@ -12,7 +12,7 @@ if(!isset($_GET['id'])) {
 }
 
 $id = $_GET['id'];
-$subject = find_subject($id);
+$subject = find_single_item('subjects', $id);
 
 ?>
 

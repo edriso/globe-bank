@@ -6,7 +6,7 @@
 <!-- Content -->
 <?php
 
-$page_set = find_all_pages();
+$page_set = find_all_data('pages');
 
 ?>
 
