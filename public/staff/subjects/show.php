@@ -27,15 +27,15 @@ $subject = find_subject($id);
         <tbody>
             <tr>
                 <th scope="row">Menu Name</th>
-                <td><?php echo $subject['menu_name']; ?></td>
+                <td><?php echo h($subject['menu_name']); ?></td>
             </tr>
             <tr>
                 <th scope="row">Position</th>
-                <td><?php echo $subject['position']; ?></td>
+                <td><?php echo h($subject['position']); ?></td>
             </tr>
             <tr>
                 <th scope="row">Visible</th>
-                <td><?php echo $subject['visible']; ?></td>
+                <td><?php echo h($subject['visible']); ?></td>
             </tr>
         </tbody>
     </table>
