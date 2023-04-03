@@ -43,7 +43,7 @@ function create_record($table, $record) {
     $query .= "'" . $record['menu_name'] . "',";
     $query .= "'" . $record['position'] . "',";
     if($table === 'pages') {
-        $query .= "'" . $record['content'] . "',";
+        $query .= ($record['content'] ? "'".$record['content']."'" : 'NULL') . ",";
     }
     $query .= "'" . $record['visible'] . "'";
     $query .= ")";
@@ -66,7 +66,7 @@ function update_record($table, $record) {
     $query .= "SET menu_name='" . $record['menu_name'] . "', ";
     $query .= "position='" . $record['position'] . "', ";
     if($table === 'pages') {
-        $query .= "content='" . $record['content'] . "', ";
+        $query .= "content=" . ($record['content'] ? "'".$record['content']."'" : 'NULL') . ", ";
     }
     $query .= "visible='" . $record['visible'] . "' ";
     $query .= "WHERE id='" . $record['id'] . "' LIMIT 1";
