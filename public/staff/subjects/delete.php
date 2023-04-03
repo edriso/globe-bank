@@ -13,8 +13,7 @@ $id = $_GET['id'];
 
 if(is_post_request()) {
     delete_record('subjects', $id);
-} 
-else {
+} else {
     $subject = find_single_record('subjects', $id);
 }
 

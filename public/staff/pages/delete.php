@@ -13,8 +13,7 @@ $id = $_GET['id'];
 
 if(is_post_request()) {
     delete_record('pages', $id);
-} 
-else {
+} else {
     $page = find_single_record('pages', $id);
 }
 
