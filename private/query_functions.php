@@ -5,6 +5,7 @@ function count_records($table) {
     $query = "SELECT COUNT('id') FROM $table";
     $result_set = mysqli_query($db, $query);
     $result = mysqli_fetch_row($result_set)[0];
+    mysqli_free_result($result_set);
     return $result;
 }
 
