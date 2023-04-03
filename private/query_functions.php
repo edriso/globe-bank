@@ -40,22 +40,24 @@ function create_record($table, $menu_name, $position, $visible) {
     redirect_to(url_for("/staff/$table/show.php?id=$new_id"));
 }
 
-function update_record($table, $id, $subject) {
+function update_record($table, $record) {
     global $db;
     $query = "UPDATE $table ";
-    $query .= "SET menu_name='" . $subject['menu_name'] . "', ";
-    $query .= "position='" . $subject['position'] . "', ";
-    $query .= "visible='" . $subject['visible'] . "' ";
-    $query .= "WHERE id='$id' LIMIT 1";
+    $query .= "SET menu_name='" . $record['menu_name'] . "', ";
+    $query .= "position='" . $record['position'] . "', ";
+    $query .= "visible='" . $record['visible'] . "' ";
+    $query .= "WHERE id='" . $record['id'] . "' LIMIT 1";
     $result = mysqli_query($db, $query);
-
+    
     if(!$result) {
         echo mysqli_errno($db);
         db_disconnect($db);
         exit;
     }
 
-    redirect_to(url_for("/staff/$table/show.php?id=$id"));
+    redirect_to(url_for("/staff/$table/show.php?id=" . $record['id']));
 }
+
+
 
 ?>

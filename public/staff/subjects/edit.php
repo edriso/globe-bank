@@ -13,7 +13,8 @@ if(is_post_request()) {
     $subject['menu_name'] = h($_POST['menu_name']) ?? '';
     $subject['position'] = h($_POST['position']) ?? '';
     $subject['visible'] = h($_POST['visible']) ?? '';
-    update_record('subjects', $id, $subject);
+    $subject['id'] = $id;
+    update_record('subjects', $subject);
 } else {
     $subject = find_single_record('subjects', $id);
 }

@@ -13,7 +13,8 @@ if(is_post_request()) {
     $page['menu_name'] = h($_POST['menu_name']) ?? '';
     $page['position'] = h($_POST['position']) ?? '';
     $page['visible'] = h($_POST['visible']) ?? '';
-    update_record('pages', $id, $page);
+    $page['id'] = $id;
+    update_record('pages', $page);
 } else {
     $page = find_single_record('pages', $id);
 }
