@@ -58,6 +58,19 @@ function update_record($table, $record) {
     redirect_to(url_for("/staff/$table/show.php?id=" . $record['id']));
 }
 
+function delete_record($table, $id) {
+    global $db;
+    $query = "DELETE FROM $table ";
+    $query .= "WHERE id='$id' LIMIT 1";
+    $result = mysqli_query($db, $query);
 
+    if(!$result) {
+        echo mysqli_errno($db);
+        db_disconnect($db);
+        exit;
+    }
+
+    redirect_to(url_for("/staff/$table/index.php"));
+}
 
 ?>
