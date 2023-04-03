@@ -23,11 +23,11 @@ function find_single_record($table, $id) {
     return $result;
 }
 
-function create_record($table, $menu_name, $position, $visible) {
+function create_record($table, $record) {
     global $db;
     $query = "INSERT INTO $table ";
     $query .= "(menu_name, position, visible) ";
-    $query .= "VALUES ('$menu_name', '$position', '$visible')";
+    $query .= "VALUES ('" . $record['menu_name'] . "', '" . $record['position'] . "', '" . $record['visible'] . "')";
     $result = mysqli_query($db, $query);
     
     if(!$result) {

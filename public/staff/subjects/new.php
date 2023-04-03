@@ -3,10 +3,12 @@
 require_once('../../../private/initialize.php');
 
 if(is_post_request()) {
-    $menu_name = $_POST['menu_name'];
-    $position = $_POST['position'];
-    $visible = $_POST['visible'];
-    create_record('subjects',  $menu_name, $position, $visible);
+    $subject = [
+        'menu_name' => $_POST['menu_name'],
+        'position' => $_POST['position'],
+        'visible' => $_POST['visible'] ?? 0
+    ];
+    create_record('subjects',  $subject);
 }
 
 ?>
