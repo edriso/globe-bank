@@ -8,6 +8,7 @@ if(is_post_request()) {
     $page = [
         'menu_name' => $_POST['menu_name'],
         'position' => $_POST['position'],
+        'content' => $_POST['content'],
         'visible' => $_POST['visible'] ?? 0
     ];
     create_record('pages',  $page);
@@ -41,6 +42,10 @@ if(is_post_request()) {
                     }
                     ?>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control"></textarea>
             </div>
             <div class="mb-3 form-check">
                 <input type="hidden" name="visible" value="0" class="form-check-input">

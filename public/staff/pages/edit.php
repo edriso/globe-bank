@@ -13,6 +13,7 @@ if(is_post_request()) {
     $page['menu_name'] = h($_POST['menu_name']) ?? '';
     $page['position'] = h($_POST['position']) ?? '';
     $page['visible'] = h($_POST['visible']) ?? '';
+    $page['content'] = h($_POST['content']) ?? '';
     $page['id'] = $id;
     update_record('pages', $page);
 } else {
@@ -51,6 +52,10 @@ if(is_post_request()) {
                     }
                     ?>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control"><?php echo h($page['content']); ?></textarea>
             </div>
             <div class="mb-3 form-check">
                 <input type="hidden" name="visible" value="0" class="form-check-input" />

@@ -1,11 +1,9 @@
 <?php require_once('../../../private/initialize.php'); ?>
 
 <?php
+
 $page_title = 'Show page';
 include_once(SHARED_PATH . '/staff_header.php');
-?>
-
-<?php
 
 if(!isset($_GET['id'])) {
     redirect_to(url_for('/staff/pages/index.php'));
@@ -36,6 +34,10 @@ $page = find_single_record('pages', $id);
             <tr>
                 <th scope="row">Visible</th>
                 <td><?php echo h($page['visible']) ? 'true' : 'false'; ?></td>
+            </tr>
+            <tr>
+                <th scope="row">Content</th>
+                <td><?php echo h($page['content']); ?></td>
             </tr>
         </tbody>
     </table>

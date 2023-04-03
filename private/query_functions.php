@@ -35,8 +35,19 @@ function find_single_record($table, $id) {
 function create_record($table, $record) {
     global $db;
     $query = "INSERT INTO $table ";
-    $query .= "(menu_name, position, visible) ";
-    $query .= "VALUES ('" . $record['menu_name'] . "', '" . $record['position'] . "', '" . $record['visible'] . "')";
+    $query .= "(menu_name, position,";
+    if($table === 'pages') {
+        $query .= "content,";
+    }
+    $query .= "visible) VALUES (";
+    $query .= "'" . $record['menu_name'] . "',";
+    $query .= "'" . $record['position'] . "',";
+    if($table === 'pages') {
+        $query .= "'" . $record['content'] . "',";
+    }
+    $query .= "'" . $record['visible'] . "'";
+    $query .= ")";
+    echo $query;
     $result = mysqli_query($db, $query);
     
     if(!$result) {
@@ -54,6 +65,9 @@ function update_record($table, $record) {
     $query = "UPDATE $table ";
     $query .= "SET menu_name='" . $record['menu_name'] . "', ";
     $query .= "position='" . $record['position'] . "', ";
+    if($table === 'pages') {
+        $query .= "content='" . $record['content'] . "', ";
+    }
     $query .= "visible='" . $record['visible'] . "' ";
     $query .= "WHERE id='" . $record['id'] . "' LIMIT 1";
     $result = mysqli_query($db, $query);
