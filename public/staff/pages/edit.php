@@ -17,6 +17,7 @@ if(is_post_request()) {
     update_record('pages', $page);
 } else {
     $page = find_single_record('pages', $id);
+    $page_count = count_records('pages');
 }
 
 ?>
@@ -40,7 +41,15 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1" <?php if($page['position'] === '1'){ echo 'selected'; } ?>>1</option>
+                    <?php
+                    for($i=1; $i <= $page_count; $i++) {
+                        echo "<option value='$i' ";
+                        if($page['position'] == $i){
+                            echo 'selected';
+                        }
+                        echo ">$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="mb-3 form-check">

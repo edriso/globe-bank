@@ -2,6 +2,8 @@
 
 require_once('../../../private/initialize.php');
 
+$subject_count = count_records('subjects') + 1;
+
 if(is_post_request()) {
     $subject = [
         'menu_name' => $_POST['menu_name'],
@@ -29,7 +31,15 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1">1</option>
+                    <?php
+                    for($i=1; $i <= $subject_count; $i++) {
+                        echo "<option value='$i' ";
+                        if($i == $subject_count){
+                            echo 'selected';
+                        }
+                        echo ">$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="mb-3 form-check">

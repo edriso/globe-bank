@@ -2,6 +2,8 @@
 
 require_once('../../../private/initialize.php');
 
+$page_count = count_records('pages') + 1;
+
 if(is_post_request()) {
     $page = [
         'menu_name' => $_POST['menu_name'],
@@ -29,7 +31,15 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1">1</option>
+                    <?php
+                    for($i=1; $i <= $page_count; $i++) {
+                        echo "<option value='$i' ";
+                        if($i == $page_count){
+                            echo 'selected';
+                        }
+                        echo ">$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="mb-3 form-check">
@@ -37,7 +47,7 @@ if(is_post_request()) {
                 <input type="checkbox" name="visible" value="1" class="form-check-input" id="visible">
                 <label class="form-check-label" for="visible">Visible</label>
             </div>
-            <button type="submit" class="btn btn-primary">Create page</button>
+            <button type="submit" class="btn btn-primary">Create Page</button>
         </form>
     </div>
 </div>

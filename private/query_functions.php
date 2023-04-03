@@ -1,5 +1,13 @@
 <?php
 
+function count_records($table) {
+    global $db;
+    $query = "SELECT COUNT('id') FROM $table";
+    $result_set = mysqli_query($db, $query);
+    $result = mysqli_fetch_row($result_set)[0];
+    return $result;
+}
+
 function find_all_records($table) {
     global $db;
     $query = "SELECT * FROM $table";

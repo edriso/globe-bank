@@ -17,6 +17,7 @@ if(is_post_request()) {
     update_record('subjects', $subject);
 } else {
     $subject = find_single_record('subjects', $id);
+    $subject_count = count_records('subjects');
 }
 
 ?>
@@ -40,7 +41,15 @@ if(is_post_request()) {
             <div class="mb-3">
                 <label for="position" class="form-label">Position</label>
                 <select id="position" name="position" class="form-select">
-                    <option value="1" <?php if($subject['position'] === '1'){ echo 'selected'; } ?>>1</option>
+                    <?php
+                    for($i=1; $i <= $subject_count; $i++) {
+                        echo "<option value='$i' ";
+                        if($subject['position'] == $i){
+                            echo 'selected';
+                        }
+                        echo ">$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="mb-3 form-check">
