@@ -17,7 +17,9 @@ if(is_post_request()) {
     $page['id'] = $id;
     
     $result = update_record('pages', $page);
-    redirect_to(url_for("/staff/pages/show.php?id=" . $id));
+    if($result === true) {
+        redirect_to(url_for("/staff/pages/show.php?id=" . $id));
+    }
 } else {
     $page = find_single_record('pages', $id);
     $page_count = count_records('pages');
