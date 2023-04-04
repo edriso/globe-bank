@@ -7,3 +7,11 @@ body {
 body > main {
   flex: 1;
 }
+
+.errors > p {
+  margin-bottom: 0.25rem;
+}
+
+.errors ul {
+  color: crimson;
+}
