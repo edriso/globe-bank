@@ -13,6 +13,11 @@ function db_disconnect($connection) {
     }
 }
 
+function db_escape($string) {
+    global $db;
+    return mysqli_real_escape_string($db, $string);
+}
+
 // function check_db_connect() {
 //     if(mysqli_connect_errno()) {
 //         $msg = "Database connection failed: ";
@@ -27,10 +32,5 @@ function db_disconnect($connection) {
 //         exit("Database query failed.");
 //     }
 // }
-
-function db_escape($string) {
-    global $db;
-    return mysqli_real_escape_string($db, $string);
-}
 
 ?>
