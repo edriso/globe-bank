@@ -10,7 +10,13 @@ if(is_post_request()) {
         'position' => $_POST['position'],
         'visible' => $_POST['visible'] ?? 0
     ];
-    create_record('subjects',  $subject);
+
+    $result = create_record('subjects',  $subject);
+    
+    if($result !== true) {
+        $errors = $result;
+        var_dump($errors);
+    }
 }
 
 ?>

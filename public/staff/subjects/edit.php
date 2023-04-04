@@ -6,7 +6,7 @@ if(!isset($_GET['id'])) {
     redirect_to(url_for('/staff/subjects/index.php'));
 }
 
-$id = $_GET['id'];
+$id = h(u($_GET['id']));
 
 if(is_post_request()) {
     $subject = [];
@@ -14,7 +14,15 @@ if(is_post_request()) {
     $subject['position'] = h($_POST['position']) ?? '';
     $subject['visible'] = h($_POST['visible']) ?? '';
     $subject['id'] = $id;
-    update_record('subjects', $subject);
+    
+    $result = update_record('subjects', $subject);
+
+    if($result === true) {
+        redirect_to(url_for("/staff/subjects/show.php?id=" . $id));
+    } else {
+        $errors = $result;
+        var_dump($errors);
+    }
 } else {
     $subject = find_single_record('subjects', $id);
     $subject_count = count_records('subjects');
