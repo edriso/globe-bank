@@ -40,7 +40,7 @@ if(is_post_request()) {
     <div class="subject new">
         <h1>Edit Subject</h1>
 
-        <?php if(isset($errors)) {echo display_errors($errors);} ?>
+        <?php echo display_errors($errors); ?>
 
         <form action="<?php echo url_for("/staff/subjects/edit.php?id=" . h(u($id))); ?>" method="post">
             <div class="mb-3">
