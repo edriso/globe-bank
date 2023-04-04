@@ -1,7 +1,7 @@
 <?php
 
 function is_blank($value) {
-    return (empty($value) || trim($value) === '' || !isset($value));
+    return (trim($value) === '' || !isset($value));
 }
 
 function has_presence($value) {

@@ -5,6 +5,14 @@
 
 <!-- Content -->
 <div>
+    <?php
+        if(
+            empty(array() && empty("0 0"))
+            ) {
+            echo "TRUE!!!";
+        }
+    ?>
+
     <h3>Main Menu</h3>
 
     <ul class="nav">
