@@ -11,8 +11,9 @@ A project to practice on PHP and MySQL with Kevin Skoglund on LinkedIn Learning.
 - Using PHP to access MySQL
 - CRUD with PHP
 - Validate data with PHP
-- Understanding and preventing SQL injection
-  - By escaping dynamic values and using quotes around them
+- Understanding and preventing SQL injection by:
+  - Escaping dynamic values `mysqli_real_escape_string($db, $string)`
+  - Delimit numeric values in single quotes (add quotes to them)
 
 #### Folder Structure
 
