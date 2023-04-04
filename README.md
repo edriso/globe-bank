@@ -2,7 +2,16 @@
 
 A project to practice on PHP and MySQL with Kevin Skoglund on LinkedIn Learning.
 
-#### Work Area Strucutre
+#### Main Work
+
+- Building web pages with PHP
+- HTTP headers and redirects
+- Building forms with PHP
+- Using PHP to access MySQL
+- CRUD with PHP
+- Validate data with PHP
+
+#### Folder Structure
 
 The project is built with public and private directory;
 
