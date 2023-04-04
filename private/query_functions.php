@@ -20,7 +20,7 @@ function find_all_records($table) {
 function find_single_record($table, $id) {
     global $db;
     $query = "SELECT * FROM $table ";
-    $query .= "WHERE id = '$id'";
+    $query .= "WHERE id = '". db_escape($id) ."'";
     $result_set = mysqli_query($db, $query);
     $result = mysqli_fetch_assoc($result_set);
     mysqli_free_result($result_set); // free from memory
@@ -46,14 +46,13 @@ function create_record($table, $record) {
         $query .= "content,";
     }
     $query .= "visible) VALUES (";
-    $query .= "'" . $record['menu_name'] . "',";
-    $query .= "'" . $record['position'] . "',";
+    $query .= "'" . db_escape($record['menu_name']) . "',";
+    $query .= "'" . db_escape($record['position']) . "',";
     if($table === 'pages') {
-        $query .= ($record['content'] ? "'".$record['content']."'" : 'NULL') . ",";
+        $query .= ($record['content'] ? "'".db_escape($record['content'])."'" : 'NULL') . ",";
     }
-    $query .= "'" . $record['visible'] . "'";
+    $query .= "'" . db_escape($record['visible']) . "'";
     $query .= ")";
-    echo $query;
     $result = mysqli_query($db, $query);
     
     if(!$result) {
@@ -76,13 +75,13 @@ function update_record($table, $record) {
     }
 
     $query = "UPDATE $table ";
-    $query .= "SET menu_name='" . $record['menu_name'] . "', ";
-    $query .= "position='" . $record['position'] . "', ";
+    $query .= "SET menu_name='" . db_escape($record['menu_name']) . "', ";
+    $query .= "position='" . db_escape($record['position']) . "', ";
     if($table === 'pages') {
-        $query .= "content=" . ($record['content'] ? "'".$record['content']."'" : 'NULL') . ", ";
+        $query .= "content=" . ($record['content'] ? "'".db_escape($record['content'])."'" : 'NULL') . ", ";
     }
-    $query .= "visible='" . $record['visible'] . "' ";
-    $query .= "WHERE id='" . $record['id'] . "' LIMIT 1";
+    $query .= "visible='" . db_escape($record['visible']) . "' ";
+    $query .= "WHERE id='" . db_escape($record['id']) . "' LIMIT 1";
     $result = mysqli_query($db, $query);
     
     if(!$result) {
@@ -97,7 +96,7 @@ function update_record($table, $record) {
 function delete_record($table, $id) {
     global $db;
     $query = "DELETE FROM $table ";
-    $query .= "WHERE id='$id' LIMIT 1";
+    $query .= "WHERE id='". db_escape($id) ."' LIMIT 1";
     $result = mysqli_query($db, $query);
 
     if(!$result) {
