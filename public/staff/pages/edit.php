@@ -6,7 +6,7 @@ if(!isset($_GET['id'])) {
     redirect_to(url_for('/staff/pages/index.php'));
 }
 
-$id = $_GET['id'];
+$id = h(u($_GET['id']));
 
 if(is_post_request()) {
     $page = [];
@@ -15,7 +15,9 @@ if(is_post_request()) {
     $page['visible'] = h($_POST['visible']) ?? '';
     $page['content'] = h($_POST['content']) ?? '';
     $page['id'] = $id;
-    update_record('pages', $page);
+    
+    $result = update_record('pages', $page);
+    redirect_to(url_for("/staff/pages/show.php?id=" . $id));
 } else {
     $page = find_single_record('pages', $id);
     $page_count = count_records('pages');
