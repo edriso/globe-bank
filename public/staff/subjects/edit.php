@@ -8,6 +8,9 @@ if(!isset($_GET['id'])) {
 
 $id = h(u($_GET['id']));
 
+$subject = find_single_record('subjects', $id);
+$subject_count = count_records('subjects');
+
 if(is_post_request()) {
     $subject = [];
     $subject['menu_name'] = h($_POST['menu_name']) ?? '';
@@ -23,9 +26,6 @@ if(is_post_request()) {
         $errors = $result;
         // var_dump($errors);
     }
-} else {
-    $subject = find_single_record('subjects', $id);
-    $subject_count = count_records('subjects');
 }
 
 ?>
