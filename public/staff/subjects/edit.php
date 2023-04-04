@@ -24,7 +24,6 @@ if(is_post_request()) {
         redirect_to(url_for("/staff/subjects/show.php?id=" . $id));
     } else {
         $errors = $result;
-        // var_dump($errors);
     }
 }
 
