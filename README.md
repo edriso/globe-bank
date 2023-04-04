@@ -12,6 +12,7 @@ A project to practice on PHP and MySQL with Kevin Skoglund on LinkedIn Learning.
 - CRUD with PHP
 - Validate data with PHP
 - Understanding and preventing SQL injection
+  - By escaping dynamic values and using quotes around them
 
 #### Folder Structure
 
