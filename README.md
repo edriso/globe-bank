@@ -2,14 +2,16 @@
 
 A project to practice on PHP and MySQL with Kevin Skoglund on LinkedIn Learning.
 
-#### Main Work
+#### Things I learned
 
 - Building web pages with PHP
-- HTTP headers and redirects
+- Modifying HTTP headers and page redirection
 - Building forms with PHP
+- Working with MySQL
 - Using PHP to access MySQL
 - CRUD with PHP
 - Validate data with PHP
+- Understanding and preventing SQL injection
 
 #### Folder Structure
 
