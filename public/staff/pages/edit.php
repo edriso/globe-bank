@@ -8,6 +8,9 @@ if(!isset($_GET['id'])) {
 
 $id = h(u($_GET['id']));
 
+$page = find_single_record('pages', $id);
+$page_count = count_records('pages');
+
 if(is_post_request()) {
     $page = [];
     $page['menu_name'] = h($_POST['menu_name']) ?? '';
@@ -19,10 +22,9 @@ if(is_post_request()) {
     $result = update_record('pages', $page);
     if($result === true) {
         redirect_to(url_for("/staff/pages/show.php?id=" . $id));
+    } else {
+        $errors = $result;
     }
-} else {
-    $page = find_single_record('pages', $id);
-    $page_count = count_records('pages');
 }
 
 ?>
@@ -36,6 +38,8 @@ if(is_post_request()) {
 
     <div class="page new">
         <h1>Edit Page</h1>
+
+        <?php echo display_errors($errors); ?>
 
         <form action="<?php echo url_for("/staff/pages/edit.php?id=" . h(u($id))); ?>" method="post">
             <div class="mb-3">

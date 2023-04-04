@@ -11,7 +11,12 @@ if(is_post_request()) {
         'content' => $_POST['content'],
         'visible' => $_POST['visible'] ?? 0
     ];
-    create_record('pages',  $page);
+    
+    $result = create_record('pages',  $page);
+
+    if($result !== true) {
+        $errors = $result;
+    }
 }
 
 ?>
@@ -23,6 +28,8 @@ if(is_post_request()) {
     <a class="back-link" href="<?php echo url_for('/staff/pages/index.php'); ?>">&laquo; Back to List</a>
     <div class="page new">
         <h1>Create Page</h1>
+
+        <?php echo display_errors($errors); ?>
 
         <form action="<?php echo url_for('/staff/pages/new.php'); ?>" method="post">
             <div class="mb-3">
